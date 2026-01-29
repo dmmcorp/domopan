@@ -30,13 +30,13 @@ export default function RootLayout({
       <body
         className={`${parnasoSmallRegular.className} ${geistMono.variable} relative antialiased `}
       >
-        {/* <div className="fixed inset-0">
+        <div className="fixed inset-0">
           <Header />
-        </div> */}
+        </div>
         {children}
-        {/* <div className="fixed left-0 bottom-0 w-full">
+        <div className="fixed left-0 bottom-0 w-full">
           <Footer />
-        </div> */}
+        </div>
       </body>
     </html>
   );

@@ -50,6 +50,8 @@
   --warm-stone: #c2bfb2;
   --aqua-whisper: #9eedff;
   --lavander-orbit: #7866b8;
+  --soft-pistachio: #d5dda1;
+  --frosted-sky: #dbf8ff;
 }
 
 :root {
@@ -90,6 +92,8 @@
   --warm-stone: #c2bfb2;
   --aqua-whisper: #9eedff;
   --lavander-orbit: #7866b8;
+  --soft-pistachio: #d5dda1;
+  --frosted-sky: #dbf8ff;
 }
 .dark {
   --background: oklch(0.145 0 0);
