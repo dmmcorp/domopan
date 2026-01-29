@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { parnasoSmallRegular } from "@/lib/font";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,15 +28,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} relative antialiased `}
+        className={`${parnasoSmallRegular.className} ${geistMono.variable} relative antialiased `}
       >
-        <div className="fixed inset-0">
+        {/* <div className="fixed inset-0">
           <Header />
-        </div>
+        </div> */}
         {children}
-        <div className="fixed left-0 bottom-0 w-full">
+        {/* <div className="fixed left-0 bottom-0 w-full">
           <Footer />
-        </div>
+        </div> */}
       </body>
     </html>
   );

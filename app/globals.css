@@ -45,6 +45,11 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  --midnight-carbon: oklch(24.231% 0.0048 325.456);
+  --warm-stone: #c2bfb2;
+  --aqua-whisper: #9eedff;
+  --lavander-orbit: #7866b8;
 }
 
 :root {
@@ -127,4 +132,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.nav-description {
+  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl 2xl:text-4xl tracking-normal font-semibold md:font-normal w-full lg:w-1/2;
+}
+
+.nav-links {
+  @apply sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-tight font-normal tracking-wide text-2xl transition-colors duration-300;
 }

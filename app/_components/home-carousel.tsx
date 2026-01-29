@@ -39,7 +39,7 @@ export const HomeCarousel = () => {
           UmsalalMainImage,
         ].map((src, i) => (
           <CarouselItem key={i} className="basis-full">
-            <div className="relative w-full aspect-21/9 overflow-hidden">
+            <div className="relative w-full h-[65vh] overflow-hidden">
               <Image
                 src={src}
                 alt={`Carousel image ${i + 1}`}

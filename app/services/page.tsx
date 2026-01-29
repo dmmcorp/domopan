@@ -1,4 +1,4 @@
-import { HomeCarousel } from "../home-carousel";
+import { HomeCarousel } from "../_components/home-carousel";
 
 const ServicesPage = () => {
   return (
