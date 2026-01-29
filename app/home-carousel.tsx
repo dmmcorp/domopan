@@ -1,13 +1,21 @@
 "use client";
 
+import {
+  AlthurayaTowerImage1,
+  AlthurayaTowerMainImage,
+  AlthurayaTowerrImage2,
+  AlwajbaMainImage,
+  DohaMainImage,
+  LakhwiyaStadiumMainImage,
+  ShazaMainImage,
+  UmsalalMainImage,
+} from "@/components/constants/projects-image";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselApi,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { useState } from "react";
@@ -23,9 +31,12 @@ export const HomeCarousel = () => {
     >
       <CarouselContent>
         {[
-          "/shaza/shaza_kempinski_main.jpg",
-          "/althuraya/al_thuraya_tower.jpg",
-          "/dohacollege/doha_college.jpg",
+          ShazaMainImage,
+          AlthurayaTowerMainImage,
+          AlwajbaMainImage,
+          DohaMainImage,
+          LakhwiyaStadiumMainImage,
+          UmsalalMainImage,
         ].map((src, i) => (
           <CarouselItem key={i} className="basis-full">
             <div className="relative w-full aspect-21/9 overflow-hidden">
