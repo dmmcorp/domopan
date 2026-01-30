@@ -52,6 +52,9 @@
   --lavander-orbit: #7866b8;
   --soft-pistachio: #d5dda1;
   --frosted-sky: #dbf8ff;
+  --coastal-teal: #337a8c;
+  --desert-olive: #555b27;
+  --gulf-blue: #265f6e;
 }
 
 :root {
@@ -94,6 +97,9 @@
   --lavander-orbit: #7866b8;
   --soft-pistachio: #d5dda1;
   --frosted-sky: #dbf8ff;
+  --coastal-teal: #337a8c;
+  --desert-olive: #555b27;
+  --gulf-blue: #265f6e;
 }
 .dark {
   --background: oklch(0.145 0 0);
