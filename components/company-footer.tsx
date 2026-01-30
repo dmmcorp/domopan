@@ -7,9 +7,9 @@ export const CompanyFooter = () => {
     <div
       className={`${parnasoSmallRegular.className} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 space-y-5 md:space-y-10`}
     >
-      <div className="flex flex-col">
-        <h1>Address</h1>
-        <div className="-space-y-2">
+      <div className="flex flex-col gap-2">
+        <h1 className="uppercase font-semibold">Address</h1>
+        <div className="-space-y-1 text-black/90">
           <p className="text-[19px]">{companyInfo.address.line1}</p>
           <p className="text-[19px]">{companyInfo.address.line2}</p>
           <p className="text-[19px]">{companyInfo.address.line3}</p>
@@ -17,16 +17,16 @@ export const CompanyFooter = () => {
         </div>
       </div>
       <div className="space-y-4">
-        <div className="-space-y-1">
-          <h1>Phone</h1>
-          <p className="text-[19px]">{companyInfo.phone}</p>
+        <div className="space-y-1">
+          <h1 className="uppercase font-semibold">Phone</h1>
+          <p className="text-[19px] text-black/90">{companyInfo.phone}</p>
         </div>
-        <div className="-space-y-1">
-          <h1>Email</h1>
-          <p className="text-[19px]">{companyInfo.email}</p>
+        <div className="space-y-1">
+          <h1 className="uppercase font-semibold">Email</h1>
+          <p className="text-[19px] text-black/90">{companyInfo.email}</p>
         </div>
       </div>
-      <div className="flex flex-col -space-y-1 text-[19px]">
+      <div className="flex flex-col space-y-1 text-[19px]">
         <Link href="/projects">Projects</Link>
         <Link href="/services">Services</Link>
         <Link href="/info">Info</Link>
