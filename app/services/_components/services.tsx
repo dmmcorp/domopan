@@ -61,16 +61,6 @@ function Services() {
           ))}
         </motion.div>
       </div>
-      <motion.div
-        initial="hidden"
-        variants={containerVariants}
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <motion.div variants={itemVariants} className="">
-          <CompanyFooter />
-        </motion.div>
-      </motion.div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import ENGLISHA from "@/public/assets/images/letter-a.svg";
 import ENGLISHN from "@/public/assets/images/letter-n.svg";
 import Navigation from "./navigation";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useRouteBackground } from "@/hooks/useRouteBackground";
@@ -49,27 +49,42 @@ function Header() {
   const pathname = usePathname();
   const currentBgColor = useRouteBackground();
 
+  const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
+
   const isHomePage = pathname === "/";
 
   const handleMouseEnter = () => {
     if (isHomePage) {
       setOpen(false);
-    } else {
-      setOpen(true);
+      return;
     }
+
+    // clear any existing timeout
+    if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
+
+    // set a delayed open
+    hoverTimeout.current = setTimeout(() => {
+      setOpen(true);
+    }, 500);
   };
+
   const handleMouseExit = () => {
+    // cancel the hover delay if mouse leaves early
+    if (hoverTimeout.current) {
+      clearTimeout(hoverTimeout.current);
+      hoverTimeout.current = null;
+    }
     setOpen(false);
   };
 
   return (
-    <div className="relative">
-      <div
-        onMouseEnter={() => handleMouseEnter()}
-        onMouseLeave={() => handleMouseExit()}
-        className={`${currentBgColor} w-full relative h-fit py-6 z-50`}
-      >
-        <div className="relative flex flex-row justify-between items-center px-5 lg:px-10 z-50 ">
+    <div
+      className="relative z-50 "
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseExit}
+    >
+      <div className={`${currentBgColor} w-full relative h-fit py-6 z-40`}>
+        <div className="relative flex flex-row justify-between items-center px-5 lg:px-10 ">
           {domopanLetters.map((letter) => (
             <div key={letter.label} className="size-10">
               <Image
@@ -84,8 +99,6 @@ function Header() {
       <AnimatePresence>
         {open && (
           <motion.nav
-            onHoverStart={() => handleMouseEnter()}
-            onHoverEnd={() => handleMouseExit()}
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", duration: 0.6 }}
