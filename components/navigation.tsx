@@ -5,7 +5,12 @@ import Link from "next/link";
 function Navigation() {
   return (
     <main className="w-full flex flex-col lg:flex-row justify-between px-10 py-3 gap-10">
-      <p className={cn(parnasoSmallMedium.className, "nav-description")}>
+      <p
+        className={cn(
+          parnasoSmallMedium.className,
+          "nav-description font-semibold",
+        )}
+      >
         Domopan provides turnkey design-build solutions for residentials,
         commercial, and industrial developments
       </p>

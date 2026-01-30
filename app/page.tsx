@@ -89,30 +89,32 @@ export default function Home() {
         >
           <Footer />
         </motion.div>
-        <motion.div
-          onPointerDown={(e) => controls.start(e)}
-          className="cursor-grab active:cursor-grabbing"
-          drag="y"
-          style={{ y: dragY }}
-          dragControls={controls}
-          dragMomentum={false}
-          dragConstraints={{ top: 0, bottom: 10, right: 0, left: 0 }}
-          onDragEnd={handleDragEnd}
-        >
-          <motion.p
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              type: "spring",
-              duration: 1,
-              ease: "backInOut",
-              delay: 1.3,
-            }}
-            className="text-2xl text-center font-bold animate-bounce"
+        {!isOpen && (
+          <motion.div
+            onPointerDown={(e) => controls.start(e)}
+            className="cursor-grab active:cursor-grabbing"
+            drag="y"
+            style={{ y: dragY }}
+            dragControls={controls}
+            dragMomentum={false}
+            dragConstraints={{ top: 0, bottom: 10, right: 0, left: 0 }}
+            onDragEnd={handleDragEnd}
           >
-            ( Drag Down )
-          </motion.p>
-        </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                duration: 1,
+                ease: "backInOut",
+                delay: 1.3,
+              }}
+              className="text-2xl text-center font-bold animate-bounce"
+            >
+              ( Drag Down )
+            </motion.p>
+          </motion.div>
+        )}
       </motion.div>
     </motion.div>
   );
