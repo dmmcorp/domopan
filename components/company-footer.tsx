@@ -1,11 +1,19 @@
 import { parnasoSmallRegular } from "@/lib/font";
 import { companyInfo } from "@/content/company";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-export const CompanyFooter = () => {
+interface CompanyFooterProps {
+  classValue?: string;
+}
+
+export const CompanyFooter = ({ classValue }: CompanyFooterProps) => {
   return (
     <div
-      className={`${parnasoSmallRegular.className} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 space-y-5 md:space-y-10`}
+      className={cn(
+        `${parnasoSmallRegular.className} grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 space-y-5 md:space-y-10`,
+        classValue
+      )}
     >
       <div className="flex flex-col">
         <h1>Address</h1>
