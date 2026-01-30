@@ -6,7 +6,7 @@ import { CompanyFooter } from "@/components/company-footer";
 
 const InfoPage = () => {
   return (
-    <div className="bg-[#d5dda1] min-h-screen flex flex-col py-32 px-10">
+    <div className="bg-(--soft-pistachio) min-h-screen flex flex-col py-32 px-10">
       <div className="flex flex-col lg:flex-row w-full">
         <div className="lg:w-[20%]">
           <h1
