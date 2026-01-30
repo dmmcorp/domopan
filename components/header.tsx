@@ -39,8 +39,8 @@ const domopanLetters = [
 
 function Header() {
   return (
-    <div className="w-full h-fit py-6">
-      <div className="flex flex-row justify-between items-center px-10">
+    <div className="w-full h-fit py-6 bg-transparent">
+      <div className="flex flex-row justify-between items-center px-5 lg:px-10">
         {domopanLetters.map((letter) => (
           <div key={letter.label} className="size-10">
             <Image
