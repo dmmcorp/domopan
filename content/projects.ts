@@ -1,71 +1,80 @@
 import { AlthurayaTowerMainImage, AlwajbaMainImage, DohaMainImage, LakhwiyaStadiumImage3, LakhwiyaStadiumMainImage, ShazaMainImage, UmsalalMainImage } from "@/components/constants/projects-image";
 
-const TAGS = [
-    "Contracting",
-    "Hospitality",
-    "Manufacturing",
-    "Healthcare",
-    "Landscaping",
-    "Commercial",
-    "Fabric Shade Engineering",
-    "Residential",
-    "Trading",
+export const PROJECTFILTERS = [
+    "contracting",
+    "manufacturing",
+    "trading",
+    "landscaping",
+    "fabric shade engineering",
 ] as const;
 
-type ProjectTag = typeof TAGS[number];
+const TAGS = [
+    "contracting",
+    "hospitality",
+    "manufacturing",
+    "healthcare",
+    "landscaping",
+    "commercial",
+    "fabric shade engineering",
+    "residential",
+    "trading",
+] as const;
 
+export type ProjectFilter = typeof PROJECTFILTERS[number]
+
+type ProjectTag = typeof TAGS[number];
 type ProjectTagItem = {
     label: ProjectTag;
     className: string;
 };
 
-export const Projects = [
+export const PROJECTS = [
     {
         image: ShazaMainImage,
         name: "Shaza Kempinski",
         tags: [
-            { label: "Contracting", className: "bg-[#b2dde6]" },
-            { label: "Hospitality", className: "bg-white border-[#b2dde6]" },
+            { label: "contracting", className: "bg-[#b2dde6]" },
+            { label: "hospitality", className: "bg-white border-[#b2dde6]" },
         ] satisfies ProjectTagItem[]
     },
     {
         image: UmsalalMainImage,
         name: "Umm Salal Health Center",
         tags: [
-            { label: "Manufacturing", className: "bg-(--soft-pistachio)" },
-            { label: "Healthcare", className: "bg-white border-(--soft-pistachio)" },
+            { label: "manufacturing", className: "bg-(--soft-pistachio)" },
+            { label: "healthcare", className: "bg-white border-(--soft-pistachio)" },
         ] satisfies ProjectTagItem[]
     },
     {
         image: LakhwiyaStadiumMainImage,
         name: "Lekhwiya Sports Stadium",
         tags: [
-            { label: "Landscaping", className: "bg-(--coastal-teal) text-white font-normal" },
-            { label: "Commercial", className: "bg-transparent border-(--coastal-teal)" },
+            { label: "landscaping", className: "bg-(--coastal-teal) text-white font-normal" },
+            { label: "commercial", className: "bg-transparent border-(--coastal-teal)" },
         ] satisfies ProjectTagItem[]
     },
     {
         image: AlthurayaTowerMainImage,
         name: "Al Thuraya Tower",
         tags: [
-            { label: "Fabric Shade Engineering", className: "bg-(--desert-olive) text-white font-normal" },
-            { label: "Commercial", className: "bg-transparent border-(--desert-olive)" },
+            { label: "fabric shade engineering", className: "bg-(--desert-olive) text-white font-normal" },
+            { label: "commercial", className: "bg-transparent border-(--desert-olive)" },
         ] satisfies ProjectTagItem[]
     },
     {
         image: AlwajbaMainImage,
         name: "Al Wajba Compound",
         tags: [
-            { label: "Manufacturing", className: "bg-(--soft-pistachio)" },
-            { label: "Residential", className: "bg-white border-(--soft-pistachio)" },
+            { label: "manufacturing", className: "bg-(--soft-pistachio)" },
+            { label: "residential", className: "bg-white border-(--soft-pistachio)" },
         ] satisfies ProjectTagItem[]
     },
     {
         image: DohaMainImage,
         name: "Doha College Campus",
         tags: [
-            { label: "Trading", className: "bg-(--gulf-blue) text-white font-normal" },
-            { label: "Hospitality", className: "bg-white border-(--gulf-blue)" },
+            { label: "trading", className: "bg-(--gulf-blue) text-white font-normal" },
+            { label: "hospitality", className: "bg-white border-(--gulf-blue)" },
         ] satisfies ProjectTagItem[]
     },
 ];
