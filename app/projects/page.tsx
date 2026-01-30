@@ -1,6 +1,8 @@
 import { CompanyFooter } from "@/components/company-footer";
+import { Badge } from "@/components/ui/badge";
 import { Projects } from "@/content/projects";
 import { parnasoSmallMedium } from "@/lib/font";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const ProjectsPage = () => {
@@ -31,7 +33,20 @@ const ProjectsPage = () => {
                 priority={false}
               />
             </div>
-            <h1 className="mb-6 mt-4 text-lg lg:text-3xl">{project.name}</h1>
+            <h1 className="mt-4 text-lg lg:text-3xl">{project.name}</h1>
+            <div className="space-x-2">
+              {project.tags.map((tag, i) => (
+                <Badge
+                  className={cn(
+                    "rounded-sm text-black uppercase font-semibold border-2",
+                    tag.className
+                  )}
+                  key={i}
+                >
+                  {tag.label}
+                </Badge>
+              ))}
+            </div>
           </div>
         ))}
       </div>

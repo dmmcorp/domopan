@@ -23,7 +23,7 @@ export const ServiceDropdown = ({ service }: ServiceDropdownProps) => {
     <div key={title}>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="flex flex-row items-center justify-between mb-2 w-full"
+        className="flex flex-row items-center justify-between mb-2 w-full cursor-pointer"
       >
         <h1
           className={`text-2xl md:text-3xl lg:text-5xl font-medium ${parnasoSmallMedium.className}`}
