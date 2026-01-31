@@ -19,6 +19,8 @@ const TAGS = [
   "Trading",
 ] as const;
 
+export type ProjectFilter = (typeof PROJECTFILTERS)[number];
+
 type ProjectTag = (typeof TAGS)[number];
 
 type ProjectTagItem = {
