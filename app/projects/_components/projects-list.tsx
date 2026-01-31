@@ -1,0 +1,76 @@
+"use client";
+import { Projects } from "@/content/projects";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
+import { useProjectsStore } from "@/store/useProjectStore";
+
+function ProjectsList() {
+  const { activeWords } = useProjectsStore();
+
+  // Filter projects if any word is selected
+  const filteredProjects =
+    activeWords.length > 0
+      ? Projects.filter((project) =>
+          project.tags.some((tag) =>
+            activeWords.includes(tag.label.toLowerCase()),
+          ),
+        )
+      : Projects;
+
+  // Card animation
+  const card = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } },
+    exit: { opacity: 0, y: -50, scale: 0.95, transition: { duration: 0.3 } },
+  };
+
+  return (
+    <AnimatePresence mode="popLayout">
+      <motion.div className="grid grid-cols-1 lg:grid-cols-2 mt-5 gap-20">
+        {filteredProjects.map((project) => (
+          <motion.div
+            key={project.name}
+            className="cursor-pointer"
+            variants={card}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            layout // this enables smooth reordering transitions
+          >
+            {/* Project image */}
+            <div className="relative w-full aspect-video overflow-hidden rounded-xs shadow-lg">
+              <Image
+                src={project.image}
+                alt={`${project.name} image`}
+                className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                priority={false}
+              />
+            </div>
+
+            {/* Project name */}
+            <h1 className="mt-4 text-lg lg:text-3xl">{project.name}</h1>
+
+            {/* Project tags */}
+            <div className="space-x-2 mt-2 flex flex-wrap">
+              {project.tags.map((tag, i) => (
+                <Badge
+                  key={i}
+                  className={cn(
+                    "rounded-sm text-black uppercase border-2",
+                    tag.className,
+                  )}
+                >
+                  {tag.label}
+                </Badge>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+export default ProjectsList;
