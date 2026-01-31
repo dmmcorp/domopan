@@ -55,6 +55,7 @@
   --coastal-teal: #337a8c;
   --desert-olive: #555b27;
   --gulf-blue: #265f6e;
+  --normal-black: #000000;
 }
 
 :root {
@@ -100,6 +101,7 @@
   --coastal-teal: #337a8c;
   --desert-olive: #555b27;
   --gulf-blue: #265f6e;
+  --normal-black: #000000;
 }
 .dark {
   --background: oklch(0.145 0 0);
