@@ -11,15 +11,7 @@ function HeaderContainer() {
 
   return (
     <motion.div
-      initial={{
-        display: isHomePage ? "hidden" : "block",
-        opacity: isHomePage ? 1 : 1,
-      }}
-      animate={{
-        display: !isHomePage ? "hidden" : "block",
-        opacity: !isHomePage ? 1 : 0,
-      }}
-      className={`bg-transparent ${isHomePage && "absolute inset-0"} ${currentBgColor} `}
+      className={`bg-transparent  ${isHomePage && "absolute inset-0 hidden"} ${currentBgColor} `}
     >
       <Header />
     </motion.div>
