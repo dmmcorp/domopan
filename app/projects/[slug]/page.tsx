@@ -55,6 +55,13 @@ const ProjectSlugPage = async ({ params }: ProjectSlugPageProps) => {
               <p className="text-xl">{project.client}</p>
             </div>
 
+            {project.category && (
+              <div>
+                <h1 className="text-sm">CATEGORY</h1>
+                <p className="text-xl">{project.category}</p>
+              </div>
+            )}
+
             <div>
               <h1 className="text-sm">CONSULTANT</h1>
               <p className="text-xl">{project.consultant}</p>
@@ -66,8 +73,18 @@ const ProjectSlugPage = async ({ params }: ProjectSlugPageProps) => {
             </div>
           </div>
 
-          <div className="mt-6 lg:mt-18 lg:w-[70%] text-xl">
-            {project.description}
+          <div className="mt-6 lg:mt-18 lg:w-[70%] text-xl space-y-4">
+            {project.description && <p>{project.description}</p>}
+            {project.list && project.list.length > 0 && (
+              <ul className="space-y-1">
+                {project.list.map((item, i) => (
+                  <li key={`${project.slug}-item-${i}`}>{item}</li>
+                ))}
+              </ul>
+            )}
+            {project.supportingDescription && (
+              <p>{project.supportingDescription}</p>
+            )}
           </div>
         </div>
       </div>
