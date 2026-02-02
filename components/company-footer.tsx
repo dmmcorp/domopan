@@ -3,14 +3,21 @@ import { parnasoSmallRegular } from "@/lib/font";
 import { companyInfo } from "@/content/company";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
 interface CompanyFooterProps {
   classValue?: string;
+  currentPath: string;
 }
 
-export const CompanyFooter = ({ classValue }: CompanyFooterProps) => {
+export const CompanyFooter = ({
+  classValue,
+  currentPath,
+}: CompanyFooterProps) => {
   // Container variants for staggered animation
+  const projectsPath = currentPath.includes("/projects/");
+  const textColor = projectsPath ? "text-(--warm-stone)" : "text-foreground";
+
   const containerVariants = {
     hidden: {},
     visible: {
@@ -47,29 +54,44 @@ export const CompanyFooter = ({ classValue }: CompanyFooterProps) => {
           classValue,
         )}
       >
-        <div className="flex flex-col gap-2">
+        <div className={`flex flex-col gap-2 ${textColor}`}>
           <h1 className="uppercase font-semibold">Address</h1>
-          <div className="-space-y-1 text-black/90">
+          <div className="-space-y-1 ">
             <p className="text-[19px]">{companyInfo.address.line1}</p>
             <p className="text-[19px]">{companyInfo.address.line2}</p>
             <p className="text-[19px]">{companyInfo.address.line3}</p>
             <p className="text-[19px]">{companyInfo.address.line4}</p>
           </div>
         </div>
-        <div className="space-y-4">
+        <div className={`space-y-4 ${textColor}`}>
           <div className="space-y-1">
             <h1 className="uppercase font-semibold">Phone</h1>
-            <p className="text-[19px] text-black/90">{companyInfo.phone}</p>
+            <p className="text-[19px] ">{companyInfo.phone}</p>
           </div>
           <div className="space-y-1">
             <h1 className="uppercase font-semibold">Email</h1>
-            <p className="text-[19px] text-black/90">{companyInfo.email}</p>
+            <p className="text-[19px] ">{companyInfo.email}</p>
           </div>
         </div>
-        <div className="flex flex-col space-y-1 text-[19px]">
-          <Link href="/projects">Projects</Link>
-          <Link href="/services">Services</Link>
-          <Link href="/info">Info</Link>
+        <div className={`flex flex-col space-y-1 text-[19px] ${textColor}`}>
+          <Link
+            href="/projects"
+            className={`${projectsPath && "hover:text-white"} hover:text-black/50`}
+          >
+            Projects
+          </Link>
+          <Link
+            href="/services"
+            className={`${projectsPath && "hover:text-white"} hover:text-black/50`}
+          >
+            Services
+          </Link>
+          <Link
+            href="/info"
+            className={`${projectsPath && "hover:text-white"} hover:text-black/50`}
+          >
+            Info
+          </Link>
 
           <p className="mt-4">Copyright Domopan 2024</p>
         </div>

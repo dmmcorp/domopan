@@ -64,7 +64,7 @@ type ProjectTagItem = {
   label: ProjectTag;
   className: string;
 };
-type Project = {
+export type Project = {
   slug: string;
   image: StaticImageData;
   name: string;

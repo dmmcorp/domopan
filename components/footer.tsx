@@ -49,14 +49,13 @@ function Footer() {
 
   return (
     <div className={`${currentBgColor} `}>
-      {!isHomePage && <CompanyFooter />}
-      <DomopanLogoArabic />
+      {!isHomePage && <CompanyFooter currentPath={pathname}/>}
+      <DomopanLogoArabic currentPath={pathname} />
     </div>
   );
 }
 
-export function DomopanLogoArabic() {
-  const pathname = usePathname();
+export function DomopanLogoArabic({ currentPath }: { currentPath: string }) {
   return (
     <div className={`w-full h-fit py-6 bg-transparent"`}>
       <div className="flex flex-row justify-between items-center  px-5 lg:px-10">
@@ -65,7 +64,7 @@ export function DomopanLogoArabic() {
             <MaskedLetter
               key={letter.label}
               imageSrc={letter.image.src}
-              currentPath={pathname}
+              currentPath={currentPath}
             />
           </div>
         ))}
