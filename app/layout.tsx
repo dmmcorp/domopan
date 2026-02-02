@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { parnasoSmallRegular } from "@/lib/font";
+import HeaderContainer from "./_components/header-container";
+import FooterContainer from "./_components/footer-container";
 
 export const metadata: Metadata = {
   title: "Domopan",
@@ -16,9 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${parnasoSmallRegular.className} relative antialiased `}
+        className={`${parnasoSmallRegular.className} bg-(--warm-stone) relative antialiased `}
       >
-        {children}
+        <HeaderContainer />
+        <main>{children}</main>
+
+        <FooterContainer />
       </body>
     </html>
   );

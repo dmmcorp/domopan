@@ -10,6 +10,7 @@ import ARABIC7 from "@/public/assets/images/arabic-7.svg";
 import Image from "next/image";
 import { CompanyFooter } from "./company-footer";
 import { usePathname } from "next/navigation";
+import MaskedLetter from "./masked-letter";
 
 const domopanLetters = [
   {
@@ -56,15 +57,16 @@ function Footer() {
 }
 
 export function DomopanLogoArabic() {
+  const pathname = usePathname();
   return (
     <div className={`w-full h-fit py-6 bg-transparent"`}>
       <div className="flex flex-row justify-between items-center  px-5 lg:px-10">
         {domopanLetters.map((letter) => (
           <div key={letter.label} className="size-10">
-            <Image
-              src={letter.image}
-              alt={letter.label}
-              className="object-contain size-full"
+            <MaskedLetter
+              key={letter.label}
+              imageSrc={letter.image.src}
+              currentPath={pathname}
             />
           </div>
         ))}

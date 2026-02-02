@@ -1,10 +1,11 @@
 "use client";
-import { Projects } from "@/content/projects";
+
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProjectsStore } from "@/store/useProjectStore";
+import { PROJECTS } from "@/content/projects";
 
 function ProjectsList() {
   const { activeWords } = useProjectsStore();
@@ -12,12 +13,12 @@ function ProjectsList() {
   // Filter projects if any word is selected
   const filteredProjects =
     activeWords.length > 0
-      ? Projects.filter((project) =>
+      ? PROJECTS.filter((project) =>
           project.tags.some((tag) =>
             activeWords.includes(tag.label.toLowerCase()),
           ),
         )
-      : Projects;
+      : PROJECTS;
 
   // Card animation
   const card = {

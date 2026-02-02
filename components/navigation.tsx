@@ -1,5 +1,4 @@
 "use client";
-import { parnasoSmallMedium } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,12 +15,7 @@ function Navigation() {
 
   return (
     <main className="w-full flex flex-col lg:flex-row justify-between px-10 py-3 gap-10">
-      <p
-        className={cn(
-          parnasoSmallMedium.className,
-          "nav-description font-semibold",
-        )}
-      >
+      <p className={cn("nav-description font-bold")}>
         Domopan provides turnkey design-build solutions for residentials,
         commercial, and industrial developments
       </p>
@@ -37,7 +31,9 @@ function Navigation() {
                 href={route.path}
                 className={cn(
                   "nav-links hover:text-[#4a4b47]",
+
                   pathname === route.path ? "text-black" : "text-[#4a4b47]/40",
+                  pathname === "/" && "text-black",
                 )}
               >
                 {route.value.charAt(0).toUpperCase() + route.value.slice(1)}

@@ -55,7 +55,6 @@
   --coastal-teal: #337a8c;
   --desert-olive: #555b27;
   --gulf-blue: #265f6e;
-  --normal-black: #000000;
 }
 
 :root {
@@ -91,17 +90,6 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-
-  --midnight-carbon: oklch(24.231% 0.0048 325.456);
-  --warm-stone: #c2bfb2;
-  --aqua-whisper: #dbf8ff;
-  --lavander-orbit: #7866b8;
-  --soft-pistachio: #d5dda1;
-  --frosted-sky: #dbf8ff;
-  --coastal-teal: #337a8c;
-  --desert-olive: #555b27;
-  --gulf-blue: #265f6e;
-  --normal-black: #000000;
 }
 .dark {
   --background: oklch(0.145 0 0);

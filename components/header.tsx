@@ -1,11 +1,7 @@
 "use client";
+
 import Image from "next/image";
-import ENGLISHD from "@/public/assets/images/letter-d.svg";
-import ENGLISHO from "@/public/assets/images/letter-o.svg";
-import ENGLISHM from "@/public/assets/images/letter-m.svg";
-import ENGLISHP from "@/public/assets/images/letter-p.svg";
-import ENGLISHA from "@/public/assets/images/letter-a.svg";
-import ENGLISHN from "@/public/assets/images/letter-n.svg";
+import Link from "next/link";
 import Navigation from "./navigation";
 import { usePathname } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
@@ -13,24 +9,32 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useRouteBackground } from "@/hooks/useRouteBackground";
 
+// Import your letter images
+import ENGLISHD from "@/public/assets/images/letter-d.svg";
+import ENGLISHO from "@/public/assets/images/letter-o.svg";
+import ENGLISHM from "@/public/assets/images/letter-m.svg";
+import ENGLISHP from "@/public/assets/images/letter-p.svg";
+import ENGLISHA from "@/public/assets/images/letter-a.svg";
+import ENGLISHN from "@/public/assets/images/letter-n.svg";
+import MaskedLetter from "./masked-letter";
+
 const domopanLetters = [
-  { label: "ENGLISHD", image: ENGLISHD },
-  { label: "ENGLISHO", image: ENGLISHO },
-  { label: "ENGLISHM", image: ENGLISHM },
-  { label: "ENGLISHO2", image: ENGLISHO },
-  { label: "ENGLISHP", image: ENGLISHP },
-  { label: "ENGLISHA", image: ENGLISHA },
-  { label: "ENGLISHN", image: ENGLISHN },
+  { label: "D", image: ENGLISHD },
+  { label: "O", image: ENGLISHO },
+  { label: "M", image: ENGLISHM },
+  { label: "O2", image: ENGLISHO },
+  { label: "P", image: ENGLISHP },
+  { label: "A", image: ENGLISHA },
+  { label: "N", image: ENGLISHN },
 ];
 
 function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const currentBgColor = useRouteBackground();
+  const currentBgColor = useRouteBackground(); // dynamic bg color
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
   const isHomePage = pathname === "/";
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
@@ -39,18 +43,11 @@ function Header() {
 
   const handleMouseEnter = () => {
     if (isHomePage) return setOpen(false);
-
-    // Clear existing timeout if any
     if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
-
-    // Only open after 0.5s hover
-    hoverTimeout.current = setTimeout(() => {
-      setOpen(true);
-    }, 500);
+    hoverTimeout.current = setTimeout(() => setOpen(true), 500);
   };
 
   const handleMouseLeave = () => {
-    // Cancel delayed open if mouse leaves early
     if (hoverTimeout.current) {
       clearTimeout(hoverTimeout.current);
       hoverTimeout.current = null;
@@ -60,24 +57,39 @@ function Header() {
 
   return (
     <div
-      className="relative z-50"
+      className="relative z-50 bg-transparent"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div className={`${currentBgColor} w-full relative h-fit py-6 z-40`}>
-        <div className="relative flex flex-row justify-between items-center px-5 lg:px-10">
-          {domopanLetters.map((letter) => (
-            <div key={letter.label} className="size-10">
-              <Image
-                src={letter.image}
-                alt={letter.label}
-                className="object-contain size-full"
+        {/* Header Logo */}
+        {isHomePage ? (
+          <div className="relative flex flex-row justify-between items-center px-5 lg:px-10">
+            {domopanLetters.map((letter) => (
+              <MaskedLetter
+                key={letter.label}
+                imageSrc={letter.image.src}
+                currentPath={pathname}
               />
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <Link
+            href="/"
+            className="relative flex flex-row justify-between items-center px-5 lg:px-10"
+          >
+            {domopanLetters.map((letter) => (
+              <MaskedLetter
+                key={letter.label}
+                imageSrc={letter.image.src}
+                currentPath={pathname}
+              />
+            ))}
+          </Link>
+        )}
       </div>
 
+      {/* Navigation dropdown */}
       <AnimatePresence>
         {open && (
           <motion.nav
@@ -94,24 +106,6 @@ function Header() {
           </motion.nav>
         )}
       </AnimatePresence>
-    </div>
-  );
-}
-
-export function DomopanLogo() {
-  return (
-    <div className="w-full h-fit py-6">
-      <div className="flex flex-row justify-between items-center px-10">
-        {domopanLetters.map((letter) => (
-          <div key={letter.label} className="size-10">
-            <Image
-              src={letter.image}
-              alt={letter.label}
-              className="object-contain size-full"
-            />
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
