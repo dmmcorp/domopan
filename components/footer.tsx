@@ -7,7 +7,6 @@ import ARABIC4 from "@/public/assets/images/arabic-4.svg";
 import ARABIC5 from "@/public/assets/images/arabic-5.svg";
 import ARABIC6 from "@/public/assets/images/arabic-6.svg";
 import ARABIC7 from "@/public/assets/images/arabic-7.svg";
-import Image from "next/image";
 import { CompanyFooter } from "./company-footer";
 import { usePathname } from "next/navigation";
 import MaskedLetter from "./masked-letter";
