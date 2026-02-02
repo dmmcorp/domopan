@@ -33,6 +33,7 @@ function Header() {
   const currentBgColor = useRouteBackground(); // dynamic bg color
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
   const isHomePage = pathname === "/";
+  const isProjectPath = pathname.includes("/projects/");
 
   useEffect(() => {
     return () => {
@@ -98,6 +99,7 @@ function Header() {
             transition={{ type: "spring", duration: 0.6 }}
             className={cn(
               currentBgColor,
+              isProjectPath && "border-b-(--warm-stone)",
               "absolute top-full left-0 w-full h-fit flex items-end border-b-black border-b-2 shadow-md py-8 z-10",
             )}
           >
