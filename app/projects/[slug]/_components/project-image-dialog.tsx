@@ -27,7 +27,7 @@ export default function ProjectImageDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       {/* Trigger button (click image) */}
-      <DialogTrigger asChild>
+      <DialogTrigger asChild className="cursor-pointer">
         <button className="relative w-full h-full">
           <Image
             src={src}
@@ -50,9 +50,9 @@ export default function ProjectImageDialog({
           <DialogTitle className="text-white text-lg text-center">
             {alt}
           </DialogTitle>
-          <DialogClose className="text-white absolute top-3 right-3">
+          {/* <DialogClose className="text-white absolute top-3 right-3 cursor-pointer">
             ✕
-          </DialogClose>
+          </DialogClose> */}
         </DialogHeader>
 
         <div className="relative w-full aspect-video">
