@@ -58,7 +58,9 @@ function ProjectsList() {
             </div>
 
             {/* Project name */}
-            <h1 className="mt-4 text-lg lg:text-3xl">{project.name}</h1>
+            <h1 className="mt-4 text-lg lg:text-2xl font-medium text-left">
+              {project.name}
+            </h1>
 
             {/* Project tags */}
             <div className="space-x-2 mt-2 flex flex-wrap">
