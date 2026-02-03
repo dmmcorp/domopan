@@ -85,7 +85,7 @@ export default function Home() {
             delay: 0.5,
             ease: "easeInOut",
           }}
-          className="z-40"
+          className="z-40 pointer-events-none"
         >
           <Footer />
         </motion.div>
