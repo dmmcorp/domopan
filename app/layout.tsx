@@ -9,6 +9,15 @@ export const metadata: Metadata = {
   title: "Domopan",
   description:
     "Domopan provides turnkey design-build solutions for residentials, commercial, and industrial developments",
+  openGraph: {
+    images: [
+      {
+        url: "https://res.cloudinary.com/dyky0sal0/image/upload/v1770085574/favicon_dihgcc.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
