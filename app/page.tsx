@@ -11,6 +11,7 @@ import Header from "@/components/header";
 import { useRef, useState } from "react";
 import { HomeCarousel } from "./_components/home-carousel";
 import Navigation from "@/components/navigation";
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const constraintsRef = useRef(null);
@@ -57,11 +58,11 @@ export default function Home() {
           className="absolute flex flex-col  w-full z-50 "
         >
           <Header />
-          <div className="">
+          <div className={cn(!isOpen ? "hidden" : "block")}>
             <Navigation />
-          </div>
 
-          <HomeCarousel />
+            <HomeCarousel />
+          </div>
         </motion.div>
       </motion.div>
 
