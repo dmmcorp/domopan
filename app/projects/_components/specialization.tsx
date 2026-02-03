@@ -18,7 +18,7 @@ function Specialization() {
 
   return (
     <div
-      className={`text-2xl md:text-3xl lg:text-6xl font-medium mb-24 w-3/4 ${parnasoSmallMedium.className}`}
+      className={`text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-medium mb-24 w-full md:w-3/4 ${parnasoSmallMedium.className}`}
     >
       We specialize in{" "}
       {words.map((word, i) => {

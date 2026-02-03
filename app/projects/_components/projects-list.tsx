@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProjectsStore } from "@/store/useProjectStore";
 import { PROJECTS } from "@/content/projects";
+import { useRouter } from "next/navigation";
 
 function ProjectsList() {
   const { activeWords } = useProjectsStore();
+  const router = useRouter();
 
   // Filter projects if any word is selected
   const filteredProjects =
@@ -27,11 +29,15 @@ function ProjectsList() {
     exit: { opacity: 0, y: -50, scale: 0.95, transition: { duration: 0.3 } },
   };
 
+  const handleProjectClick = (projectName: string) => {
+    router.push(`/projects/${projectName}`);
+  };
+
   return (
     <AnimatePresence mode="popLayout">
       <motion.div className="grid grid-cols-1 lg:grid-cols-2 mt-5 gap-20">
         {filteredProjects.map((project) => (
-          <motion.div
+          <motion.button
             key={project.name}
             className="cursor-pointer"
             variants={card}
@@ -39,6 +45,7 @@ function ProjectsList() {
             animate="visible"
             exit="exit"
             layout // this enables smooth reordering transitions
+            onClick={() => handleProjectClick(project.slug)}
           >
             {/* Project image */}
             <div className="relative w-full aspect-video overflow-hidden rounded-xs shadow-lg">
@@ -51,7 +58,9 @@ function ProjectsList() {
             </div>
 
             {/* Project name */}
-            <h1 className="mt-4 text-lg lg:text-3xl">{project.name}</h1>
+            <h1 className="mt-4 text-lg lg:text-2xl font-medium text-left">
+              {project.name}
+            </h1>
 
             {/* Project tags */}
             <div className="space-x-2 mt-2 flex flex-wrap">
@@ -67,7 +76,7 @@ function ProjectsList() {
                 </Badge>
               ))}
             </div>
-          </motion.div>
+          </motion.button>
         ))}
       </motion.div>
     </AnimatePresence>

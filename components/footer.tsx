@@ -7,7 +7,6 @@ import ARABIC4 from "@/public/assets/images/arabic-4.svg";
 import ARABIC5 from "@/public/assets/images/arabic-5.svg";
 import ARABIC6 from "@/public/assets/images/arabic-6.svg";
 import ARABIC7 from "@/public/assets/images/arabic-7.svg";
-import Image from "next/image";
 import { CompanyFooter } from "./company-footer";
 import { usePathname } from "next/navigation";
 import MaskedLetter from "./masked-letter";
@@ -50,14 +49,13 @@ function Footer() {
 
   return (
     <div className={`${currentBgColor} `}>
-      {!isHomePage && <CompanyFooter />}
-      <DomopanLogoArabic />
+      {!isHomePage && <CompanyFooter currentPath={pathname}/>}
+      <DomopanLogoArabic currentPath={pathname} />
     </div>
   );
 }
 
-export function DomopanLogoArabic() {
-  const pathname = usePathname();
+export function DomopanLogoArabic({ currentPath }: { currentPath: string }) {
   return (
     <div className={`w-full h-fit py-6 bg-transparent"`}>
       <div className="flex flex-row justify-between items-center  px-5 lg:px-10">
@@ -66,7 +64,7 @@ export function DomopanLogoArabic() {
             <MaskedLetter
               key={letter.label}
               imageSrc={letter.image.src}
-              currentPath={pathname}
+              currentPath={currentPath}
             />
           </div>
         ))}

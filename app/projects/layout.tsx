@@ -11,7 +11,5 @@ export default function ProjectsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <main className="bg-(--aqua-whisper) relative min-h-dvh">{children}</main>
-  );
+  return <main className="bg-black relative min-h-dvh">{children}</main>;
 }

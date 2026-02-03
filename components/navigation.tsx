@@ -13,9 +13,15 @@ function Navigation() {
     { path: "/info", value: "info" },
   ];
 
+  const isProjectPath = pathname.includes("/projects/");
+
+  const textColor = isProjectPath ? "text-(--warm-stone)" : "text-black";
+
   return (
     <main className="w-full flex flex-col lg:flex-row justify-between px-10 py-3 gap-10">
-      <p className={cn("nav-description font-bold")}>
+      <p
+        className={cn(isProjectPath && textColor, "nav-description font-bold")}
+      >
         Domopan provides turnkey design-build solutions for residentials,
         commercial, and industrial developments
       </p>
@@ -34,13 +40,14 @@ function Navigation() {
 
                   pathname === route.path ? "text-black" : "text-[#4a4b47]/40",
                   pathname === "/" && "text-black",
+                  isProjectPath && textColor,
                 )}
               >
                 {route.value.charAt(0).toUpperCase() + route.value.slice(1)}
               </Link>
 
               {!isLast && (
-                <span className="nav-links mx-1 text-[#4a4b47]">
+                <span className={cn("nav-links mx-1 text-[#4a4b47]")}>
                   {isSecondToLast ? "&" : ","}
                 </span>
               )}
