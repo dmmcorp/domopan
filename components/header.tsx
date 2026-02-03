@@ -41,13 +41,15 @@ function Header() {
     };
   }, []);
 
+  // Only trigger hover dropdown on large screens
   const handleMouseEnter = () => {
-    if (isHomePage) return setOpen(false);
+    if (isHomePage || window.innerWidth < 768) return;
     if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
     hoverTimeout.current = setTimeout(() => setOpen(true), 500);
   };
 
   const handleMouseLeave = () => {
+    if (window.innerWidth < 768) return;
     if (hoverTimeout.current) {
       clearTimeout(hoverTimeout.current);
       hoverTimeout.current = null;
@@ -89,17 +91,18 @@ function Header() {
         )}
       </div>
 
+      {/* Mobile Menu Button */}
       {!isHomePage && (
         <div
           className={cn(
             currentBgColor,
-            "w-full flex items-center justify-center md:hidden relative  ",
+            "w-full flex items-center justify-center md:hidden relative z-50",
           )}
         >
           <motion.button
             onClick={() => setOpen((prev) => !prev)}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-1 p-2  rounded-md text-black"
+            className="flex items-center gap-1 p-2 rounded-md text-black"
           >
             <ChevronDown
               className={cn(
@@ -110,6 +113,7 @@ function Header() {
           </motion.button>
         </div>
       )}
+
       {/* Navigation dropdown */}
       <AnimatePresence>
         {open && (
