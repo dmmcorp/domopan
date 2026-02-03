@@ -3,21 +3,16 @@ import { parnasoSmallMedium, parnasoSmallRegular } from "@/lib/font";
 import Image, { StaticImageData } from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-type ServiceType = {
-  title: string;
-  paragraph1: string;
-  paragraph2: string;
-  image: string;
-};
+import { Service } from "@/content/services";
 
 interface ServiceDropdownProps {
-  service: ServiceType;
+  service: Service;
 }
 
 export const ServiceDropdown = ({ service }: ServiceDropdownProps) => {
   const [open, setOpen] = useState(false);
-  const { image, paragraph1, paragraph2, title } = service;
+  const { image, paragraph1, paragraph2, title, paragraph3, paragraph4 } =
+    service;
 
   return (
     <div key={title}>
@@ -61,6 +56,8 @@ export const ServiceDropdown = ({ service }: ServiceDropdownProps) => {
             >
               <p>{paragraph1}</p>
               <p>{paragraph2}</p>
+              {paragraph3 && <p>{paragraph3}</p>}
+              {paragraph4 && <p>{paragraph4}</p>}
 
               <motion.div
                 initial={{ scale: 0.96 }}
