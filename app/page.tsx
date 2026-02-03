@@ -43,7 +43,7 @@ export default function Home() {
           duration: 1,
           ease: "easeInOut",
         }}
-        className="absolute top-0 left-0 translate-y-[40%] w-full h-screen border-b-2 border-muted-foreground"
+        className="absolute top-0 left-0 translate-y-[40%] w-full h-screen border-b-2 border-muted-foreground "
       >
         <motion.div
           initial={{ opacity: 0, y: 100 }}
@@ -54,7 +54,7 @@ export default function Home() {
             delay: 0.5,
             ease: "easeInOut",
           }}
-          className="absolute flex flex-col  w-full z-50"
+          className="absolute flex flex-col  w-full z-50 "
         >
           <Header />
           <div className="">
@@ -89,32 +89,32 @@ export default function Home() {
         >
           <Footer />
         </motion.div>
-        {!isOpen && (
-          <motion.div
-            onPointerDown={(e) => controls.start(e)}
-            className="cursor-grab active:cursor-grabbing h-[50vh] flex items-center justify-center"
-            drag="y"
-            style={{ y: dragY }}
-            dragControls={controls}
-            dragMomentum={false}
-            onDragEnd={handleDragEnd}
-          >
-            <motion.p
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                duration: 1,
-                ease: "backInOut",
-                delay: 1.3,
-              }}
-              className="text-2xl text-center font-bold animate-bounce"
-            >
-              ( Drag Down )
-            </motion.p>
-          </motion.div>
-        )}
       </motion.div>
+      {!isOpen && (
+        <motion.div
+          onPointerDown={(e) => controls.start(e)}
+          className="absolute inset-0  cursor-grab active:cursor-grabbing h-screen flex items-center justify-center z-50 pt-64"
+          drag="y"
+          style={{ y: dragY }}
+          dragControls={controls}
+          dragMomentum={true}
+          onDragEnd={handleDragEnd}
+        >
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              duration: 1,
+              ease: "backInOut",
+              delay: 1.3,
+            }}
+            className="text-2xl text-center font-bold animate-bounce"
+          >
+            ( Drag Down )
+          </motion.p>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
