@@ -11,10 +11,13 @@ import {
     AlwajbaImage6,
     AlwajbaImage7,
     AlwajbaImage8,
-    AlwajbaImage9,
     AlwajbaMainImage,
     DohaImage1,
     DohaImage2,
+    DohaImage3,
+    DohaImage4,
+    DohaImage5,
+    DohaImage6,
     DohaMainImage,
     LakhwiyaStadiumImage1,
     LakhwiyaStadiumImage2,
@@ -66,13 +69,13 @@ type ProjectTagItem = {
 };
 type Project = {
     slug: string;
-    image: StaticImageData;
+    image: StaticImageData | string;
     name: string;
     client: string;
     consultant: string;
     builtUpArea: string;
     description: string;
-    gallery: StaticImageData[];
+    gallery: StaticImageData[] | string[];
     tags: ProjectTagItem[];
     category?: string;
     list?: string[];
@@ -160,7 +163,8 @@ export const PROJECTS: Projects = [
         ],
         supportingDescription:
             "An extreme fast-track approach was adopted by all stakeholders with our manpower reaching a peak workforce of 5,600 onsite. The project was delivered in a span of 18 months along with all associated external infrastructure, hard and soft landscaping.",
-        gallery: [AlwajbaImage1, AlwajbaImage2, AlwajbaImage3, AlwajbaImage4, AlwajbaImage5, AlwajbaImage6, AlwajbaImage7, AlwajbaImage8, AlwajbaImage9, AlwajbaImage10],
+        // Alwajba 9 is main image also
+        gallery: [AlwajbaImage1, AlwajbaImage2, AlwajbaImage3, AlwajbaImage4, AlwajbaImage5, AlwajbaImage6, AlwajbaImage7, AlwajbaImage8, AlwajbaMainImage, AlwajbaImage10],
         tags: [
             { label: "Manufacturing", className: "bg-(--soft-pistachio)" },
             { label: "Residential", className: "bg-white border-(--soft-pistachio)" },
@@ -175,7 +179,7 @@ export const PROJECTS: Projects = [
         consultant: "Quantex (Project Management), Jestico+Whiles /QEA (Design/Supervision)",
         builtUpArea: "90,000 M²",
         description: "Doha College, a leading British Curriculum international school in Qatar, awarded Domopan the construction of a a new pioneering 21st century campus in Al Wajba. The new 90,000m2 state-of-the-art campus composed of 15 nos. unique buildings including sports halls, swimming pools, sports pitches, an extensive network of shaded walkways, and all infrastructure works. Jestico + Whiles designed a world-class facility representing the pinnacle of international school design and will accommodate the most innovative learning methods for 2,500 pupils aged 3 to 18. The architectural solution is based on the notion of a school for all ages ‘under one roof’, with a common entrance and dedicated zones for primary and secondary schools. The design adapts the essence of a ‘British’ school to the sands of the Arabian Peninsula.",
-        gallery: [DohaImage1, DohaImage2],
+        gallery: [DohaImage1, DohaImage2, DohaImage3, DohaImage4, DohaImage5, DohaImage6],
         tags: [
             { label: "Trading", className: "bg-(--gulf-blue) text-white font-normal" },
             { label: "Hospitality", className: "bg-white border-(--gulf-blue)" },

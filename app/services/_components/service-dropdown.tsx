@@ -8,7 +8,7 @@ type ServiceType = {
   title: string;
   paragraph1: string;
   paragraph2: string;
-  image: StaticImageData;
+  image: string;
 };
 
 interface ServiceDropdownProps {
@@ -71,6 +71,7 @@ export const ServiceDropdown = ({ service }: ServiceDropdownProps) => {
                 <Image
                   src={image}
                   alt={title}
+                  fill
                   className="object-cover"
                   priority={false}
                 />
