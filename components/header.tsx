@@ -43,13 +43,13 @@ function Header() {
 
   // Only trigger hover dropdown on large screens
   const handleMouseEnter = () => {
-    if (isHomePage || window.innerWidth < 768) return;
+    if (isHomePage || window.innerWidth <= 800) return;
     if (hoverTimeout.current) clearTimeout(hoverTimeout.current);
     hoverTimeout.current = setTimeout(() => setOpen(true), 500);
   };
 
   const handleMouseLeave = () => {
-    if (window.innerWidth < 768) return;
+    if (window.innerWidth <= 800) return;
     if (hoverTimeout.current) {
       clearTimeout(hoverTimeout.current);
       hoverTimeout.current = null;
@@ -96,7 +96,7 @@ function Header() {
         <div
           className={cn(
             currentBgColor,
-            "w-full flex items-center justify-center md:hidden relative z-50",
+            "w-full flex items-center justify-center lg:hidden relative z-50",
           )}
         >
           <motion.button
