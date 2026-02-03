@@ -21,7 +21,7 @@ export const ServiceDropdown = ({ service }: ServiceDropdownProps) => {
         className="flex flex-row items-center justify-between mb-2 w-full cursor-pointer"
       >
         <h1
-          className={`text-2xl md:text-3xl lg:text-5xl font-medium ${parnasoSmallMedium.className}`}
+          className={`text-2xl md:text-3xl lg:text-5xl font-semibold ${parnasoSmallMedium.className}`}
         >
           {title}
         </h1>

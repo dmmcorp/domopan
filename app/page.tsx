@@ -92,12 +92,11 @@ export default function Home() {
         {!isOpen && (
           <motion.div
             onPointerDown={(e) => controls.start(e)}
-            className="cursor-grab active:cursor-grabbing"
+            className="cursor-grab active:cursor-grabbing h-[50vh] flex items-center justify-center"
             drag="y"
             style={{ y: dragY }}
             dragControls={controls}
             dragMomentum={false}
-            dragConstraints={{ top: 0, bottom: 10, right: 0, left: 0 }}
             onDragEnd={handleDragEnd}
           >
             <motion.p

@@ -41,7 +41,7 @@ function Services() {
         >
           <motion.h1
             variants={itemVariants}
-            className={`text-xl lg:text-3xl ${parnasoSmallMedium.className}`}
+            className={`text-xl lg:text-3xl font-semibold ${parnasoSmallMedium.className}`}
           >
             Services
           </motion.h1>
