@@ -60,8 +60,9 @@ export default function Home() {
           <Header />
           <div className={cn(!isOpen ? "hidden" : "block")}>
             <Navigation />
-
-            <HomeCarousel />
+            <div className="container mx-auto">
+              <HomeCarousel />
+            </div>
           </div>
         </motion.div>
       </motion.div>

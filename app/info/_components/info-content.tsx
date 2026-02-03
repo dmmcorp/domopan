@@ -26,7 +26,7 @@ export const InfoContent = ({ title, content }: InfoContentProps) => {
 
       <motion.div
         variants={item}
-        className={`lg:w-[80%] space-y-7 mt-7 lg:mt-0 mb-36 text-2xl md:text-3xl lg:text-5xl ${parnasoSmallMedium.className} font-medium`}
+        className={`lg:w-[80%] space-y-7 mt-7 lg:mt-0 mb-18 lg:mb-36 text-2xl md:text-3xl lg:text-5xl ${parnasoSmallMedium.className} font-medium`}
       >
         {content}
       </motion.div>

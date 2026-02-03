@@ -27,7 +27,7 @@ export const CompanyStory = () => {
       </motion.div>
 
       {/* Content */}
-      <div className="lg:w-[80%] mt-7 lg:mt-0 mb-36">
+      <div className="lg:w-[80%] mt-7 lg:mt-0 mb-18 lg:mb-36">
         <div className="space-y-5">
           {/* Heading + Toggle Button */}
           <motion.div

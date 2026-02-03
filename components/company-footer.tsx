@@ -45,7 +45,7 @@ export const CompanyFooter = ({
       variants={containerVariants}
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="px-5 lg:px-10"
+      className="px-5 lg:px-10 container mx-auto"
     >
       <motion.div
         variants={itemVariants}

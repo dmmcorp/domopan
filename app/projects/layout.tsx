@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../globals.css";
 
 export const metadata: Metadata = {
   title: "Projects - Domopan",
@@ -11,5 +10,9 @@ export default function ProjectsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main className="bg-black relative min-h-dvh">{children}</main>;
+  return (
+    <main className="bg-black relative min-h-dvh mx-auto container">
+      {children}
+    </main>
+  );
 }
