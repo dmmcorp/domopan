@@ -135,7 +135,7 @@
 }
 
 .nav-description {
-  @apply text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-2xl 2xl:text-4xl tracking-normal font-semibold md:font-normal w-full md:w-[40%];
+  @apply text-center md:text-left text-lg sm:text-xl md:text-2xl lg:text-2xl 2xl:text-2xl tracking-normal font-semibold md:font-normal w-full md:w-[40%];
 }
 
 .nav-links {
