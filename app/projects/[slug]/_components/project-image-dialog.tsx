@@ -13,7 +13,7 @@ import {
 import { Spinner } from "@/components/ui/spinner"; // Optional: use your loader component
 
 interface ProjectImageDialogProps {
-  src: StaticImageData;
+  src: StaticImageData | string;
   alt: string;
 }
 

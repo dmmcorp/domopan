@@ -17,8 +17,8 @@ function ProjectsList() {
     activeWords.length > 0
       ? PROJECTS.filter((project) =>
           project.tags.some((tag) =>
-            activeWords.includes(tag.label.toLowerCase()),
-          ),
+            activeWords.includes(tag.label.toLowerCase())
+          )
         )
       : PROJECTS;
 
@@ -54,6 +54,7 @@ function ProjectsList() {
                 alt={`${project.name} image`}
                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                 priority={false}
+                fill
               />
             </div>
 
@@ -69,7 +70,7 @@ function ProjectsList() {
                   key={i}
                   className={cn(
                     "rounded-sm text-black uppercase border-2",
-                    tag.className,
+                    tag.className
                   )}
                 >
                   {tag.label}

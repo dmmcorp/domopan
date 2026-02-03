@@ -11,10 +11,13 @@ import {
   AlwajbaImage6,
   AlwajbaImage7,
   AlwajbaImage8,
-  AlwajbaImage9,
   AlwajbaMainImage,
   DohaImage1,
   DohaImage2,
+  DohaImage3,
+  DohaImage4,
+  DohaImage5,
+  DohaImage6,
   DohaMainImage,
   LakhwiyaStadiumImage1,
   LakhwiyaStadiumImage2,
@@ -66,13 +69,13 @@ type ProjectTagItem = {
 };
 export type Project = {
   slug: string;
-  image: StaticImageData;
+  image: StaticImageData | string;
   name: string;
   client: string;
   consultant: string;
   builtUpArea: string;
   description: string;
-  gallery: StaticImageData[];
+  gallery: StaticImageData[] | string[];
   tags: ProjectTagItem[];
   category?: string;
   list?: string[];
@@ -89,16 +92,8 @@ export const PROJECTS: Projects = [
     client: "ABA & Partners",
     consultant: "Faithful & Gould CEG Int'l",
     builtUpArea: "25,700 M²",
-    description:
-      "The works comprises of the Design, Construction, Completion and Maintenance of 5-star Hotel Building including FF & E & External Works. Managing a full team of international designers (SOMA, Pascall + Watson, WSP, etc.) the project calls for the completion of a Doha landmark in the cultural center of the capital. The hotel is composed of 171 rooms, 5 nos. F & B outlets, and has a total built-up area of 25,700m².",
-    gallery: [
-      ShazaImage1,
-      ShazaImage2,
-      ShazaImage3,
-      ShazaImage4,
-      ShazaImage5,
-      ShazaImage6,
-    ],
+    description: "The works comprises of the Design, Construction, Completion and Maintenance of 5-star Hotel Building including FF & E & External Works. Managing a full team of international designers (SOMA, Pascall + Watson, WSP, etc.) the project calls for the completion of a Doha landmark in the cultural center of the capital. The hotel is composed of 171 rooms, 5 nos. F & B outlets, and has a total built-up area of 25,700m².",
+    gallery: [ShazaImage1, ShazaImage2, ShazaImage3, ShazaImage4, ShazaImage5, ShazaImage6],
     tags: [
       { label: "Contracting", className: "bg-[#b2dde6]" },
       { label: "Hospitality", className: "bg-white border-[#b2dde6]" },
@@ -112,20 +107,8 @@ export const PROJECTS: Projects = [
     category: "Healthcare",
     consultant: "Gulf Engineering & Industrial Consultants",
     builtUpArea: "12,000 M²",
-    description:
-      "The work comprises Construction, Completion & Maintenance of Health & Wellness Care Center. The work consists but not limited to the Main Health & Wellness building equipped with necessary medical equipment, with facilities such as Massage rooms, Gymnasium (Male & Female), Laboratories, consultation rooms, Several Clinics (Dental, Cardio, Gastro, Dermatology etc) and Ante Natals. Doctors & Nurses rooms, administrative offices, Conference room, cafeteria, kitchen & pantries, toilets, changing room, services rooms, Mosque building, Ancillary buildings such as Substation, Water tank yard, Chiller yard and two Guard Rooms. Hard & soft landscaping shaded structures, parking, boundary walls, fence etc…. including external site services infrastructures. The Buildings are reinforced concrete structure with block work infill. The swimming pool is covered with space frame/structural steel structure and roof cladding system.",
-    gallery: [
-      UmsalalImage1,
-      UmsalalImage2,
-      UmsalalImage3,
-      UmsalalImage4,
-      UmsalalImage5,
-      UmsalalImage6,
-      UmsalalImage7,
-      UmsalalImage8,
-      UmsalalImage9,
-      UmsalalImage10,
-    ],
+    description: "The work comprises Construction, Completion & Maintenance of Health & Wellness Care Center. The work consists but not limited to the Main Health & Wellness building equipped with necessary medical equipment, with facilities such as Massage rooms, Gymnasium (Male & Female), Laboratories, consultation rooms, Several Clinics (Dental, Cardio, Gastro, Dermatology etc) and Ante Natals. Doctors & Nurses rooms, administrative offices, Conference room, cafeteria, kitchen & pantries, toilets, changing room, services rooms, Mosque building, Ancillary buildings such as Substation, Water tank yard, Chiller yard and two Guard Rooms. Hard & soft landscaping shaded structures, parking, boundary walls, fence etc…. including external site services infrastructures. The Buildings are reinforced concrete structure with block work infill. The swimming pool is covered with space frame/structural steel structure and roof cladding system.",
+    gallery: [UmsalalImage1, UmsalalImage2, UmsalalImage3, UmsalalImage4, UmsalalImage5, UmsalalImage6, UmsalalImage7, UmsalalImage8, UmsalalImage9, UmsalalImage10],
     tags: [
       { label: "Manufacturing", className: "bg-(--soft-pistachio)" },
       { label: "Healthcare", className: "bg-white border-(--soft-pistachio)" },
@@ -139,23 +122,11 @@ export const PROJECTS: Projects = [
     consultant: "",
     builtUpArea: "",
     description: "",
-    gallery: [
-      LakhwiyaStadiumImage1,
-      LakhwiyaStadiumImage2,
-      LakhwiyaStadiumImage3,
-      LakhwiyaStadiumImage4,
-      LakhwiyaStadiumImage5,
-    ],
+    gallery: [LakhwiyaStadiumImage1, LakhwiyaStadiumImage2, LakhwiyaStadiumImage3, LakhwiyaStadiumImage4, LakhwiyaStadiumImage5],
     tags: [
-      {
-        label: "Landscaping",
-        className: "bg-(--coastal-teal) text-white font-normal",
-      },
-      {
-        label: "Commercial",
-        className: "bg-transparent border-(--coastal-teal)",
-      },
-    ] satisfies ProjectTagItem[],
+      { label: "Landscaping", className: "bg-(--coastal-teal) text-white font-normal" },
+      { label: "Commercial", className: "bg-transparent border-(--coastal-teal)" },
+    ] satisfies ProjectTagItem[]
   },
   {
     slug: "al-thuraya-tower",
@@ -167,15 +138,9 @@ export const PROJECTS: Projects = [
     description: "",
     gallery: [AlthurayaTowerImage1, AlthurayaTowerrImage2],
     tags: [
-      {
-        label: "Fabric Shade Engineering",
-        className: "bg-(--desert-olive) text-white font-normal",
-      },
-      {
-        label: "Commercial",
-        className: "bg-transparent border-(--desert-olive)",
-      },
-    ] satisfies ProjectTagItem[],
+      { label: "Fabric Shade Engineering", className: "bg-(--desert-olive) text-white font-normal" },
+      { label: "Commercial", className: "bg-transparent border-(--desert-olive)" },
+    ] satisfies ProjectTagItem[]
   },
   {
     slug: "al-wajba-compound",
@@ -183,8 +148,7 @@ export const PROJECTS: Projects = [
     name: "Al Wajba Compound",
     client: "Al Alfia Holding",
     category: "Residential",
-    consultant:
-      "Louis Berger (Project Management), Al Sadd Consulting (Supervision)",
+    consultant: "Louis Berger (Project Management), Al Sadd Consulting (Supervision)",
     builtUpArea: "165,000 M²",
     description:
       "At the time of construction, this project was the largest high-end residential compound in Qatar. Covering a plot of 200,000 m2 and a built-up area of 165,000 m2; the compound includes:",
@@ -199,22 +163,12 @@ export const PROJECTS: Projects = [
     ],
     supportingDescription:
       "An extreme fast-track approach was adopted by all stakeholders with our manpower reaching a peak workforce of 5,600 onsite. The project was delivered in a span of 18 months along with all associated external infrastructure, hard and soft landscaping.",
-    gallery: [
-      AlwajbaImage1,
-      AlwajbaImage2,
-      AlwajbaImage3,
-      AlwajbaImage4,
-      AlwajbaImage5,
-      AlwajbaImage6,
-      AlwajbaImage7,
-      AlwajbaImage8,
-      AlwajbaImage9,
-      AlwajbaImage10,
-    ],
+    // Alwajba 9 is main image also
+    gallery: [AlwajbaImage1, AlwajbaImage2, AlwajbaImage3, AlwajbaImage4, AlwajbaImage5, AlwajbaImage6, AlwajbaImage7, AlwajbaImage8, AlwajbaMainImage, AlwajbaImage10],
     tags: [
       { label: "Manufacturing", className: "bg-(--soft-pistachio)" },
       { label: "Residential", className: "bg-white border-(--soft-pistachio)" },
-    ] satisfies ProjectTagItem[],
+    ] satisfies ProjectTagItem[]
   },
   {
     slug: "doha-college-campus",
@@ -222,18 +176,13 @@ export const PROJECTS: Projects = [
     name: "Doha College Campus",
     client: "Doha College",
     category: "Education",
-    consultant:
-      "Quantex (Project Management), Jestico+Whiles /QEA (Design/Supervision)",
+    consultant: "Quantex (Project Management), Jestico+Whiles /QEA (Design/Supervision)",
     builtUpArea: "90,000 M²",
-    description:
-      "Doha College, a leading British Curriculum international school in Qatar, awarded Domopan the construction of a a new pioneering 21st century campus in Al Wajba. The new 90,000m2 state-of-the-art campus composed of 15 nos. unique buildings including sports halls, swimming pools, sports pitches, an extensive network of shaded walkways, and all infrastructure works. Jestico + Whiles designed a world-class facility representing the pinnacle of international school design and will accommodate the most innovative learning methods for 2,500 pupils aged 3 to 18. The architectural solution is based on the notion of a school for all ages ‘under one roof’, with a common entrance and dedicated zones for primary and secondary schools. The design adapts the essence of a ‘British’ school to the sands of the Arabian Peninsula.",
-    gallery: [DohaImage1, DohaImage2],
+    description: "Doha College, a leading British Curriculum international school in Qatar, awarded Domopan the construction of a a new pioneering 21st century campus in Al Wajba. The new 90,000m2 state-of-the-art campus composed of 15 nos. unique buildings including sports halls, swimming pools, sports pitches, an extensive network of shaded walkways, and all infrastructure works. Jestico + Whiles designed a world-class facility representing the pinnacle of international school design and will accommodate the most innovative learning methods for 2,500 pupils aged 3 to 18. The architectural solution is based on the notion of a school for all ages ‘under one roof’, with a common entrance and dedicated zones for primary and secondary schools. The design adapts the essence of a ‘British’ school to the sands of the Arabian Peninsula.",
+    gallery: [DohaImage1, DohaImage2, DohaImage3, DohaImage4, DohaImage5, DohaImage6],
     tags: [
-      {
-        label: "Trading",
-        className: "bg-(--gulf-blue) text-white font-normal",
-      },
+      { label: "Trading", className: "bg-(--gulf-blue) text-white font-normal" },
       { label: "Hospitality", className: "bg-white border-(--gulf-blue)" },
-    ] satisfies ProjectTagItem[],
+    ] satisfies ProjectTagItem[]
   },
 ];
