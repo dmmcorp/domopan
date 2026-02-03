@@ -21,7 +21,10 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
 
         if (i % 4 === 2)
           return (
-            <div key={`row-${i}`} className="flex flex-row gap-3 lg:gap-5">
+            <div
+              key={`row-${i}`}
+              className="flex flex-col md:flex-row gap-3 lg:gap-5"
+            >
               {[project.gallery[i], project.gallery[i + 1]].map(
                 (img, idx) =>
                   img && (
@@ -38,7 +41,7 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
                         alt={`${project.name} image`}
                       />
                     </motion.div>
-                  ),
+                  )
               )}
             </div>
           );
