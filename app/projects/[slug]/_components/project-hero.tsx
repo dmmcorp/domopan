@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import { motion } from "framer-motion";
 
 interface ProjectHeroProps {
-  image: StaticImageData;
+  image: StaticImageData | string;
   name: string;
 }
 
