@@ -8,7 +8,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useRouteBackground } from "@/hooks/useRouteBackground";
 
-// Import your letter images
 import ENGLISHD from "@/public/assets/images/letter-d.svg";
 import ENGLISHO from "@/public/assets/images/letter-o.svg";
 import ENGLISHM from "@/public/assets/images/letter-m.svg";
@@ -16,6 +15,7 @@ import ENGLISHP from "@/public/assets/images/letter-p.svg";
 import ENGLISHA from "@/public/assets/images/letter-a.svg";
 import ENGLISHN from "@/public/assets/images/letter-n.svg";
 import MaskedLetter from "./masked-letter";
+import { ChevronDown } from "lucide-react";
 
 const domopanLetters = [
   { label: "D", image: ENGLISHD },
@@ -28,9 +28,9 @@ const domopanLetters = [
 ];
 
 function Header() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // controls nav visibility
   const pathname = usePathname();
-  const currentBgColor = useRouteBackground(); // dynamic bg color
+  const currentBgColor = useRouteBackground();
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
   const isHomePage = pathname === "/";
   const isProjectPath = pathname.includes("/projects/");
@@ -89,18 +89,39 @@ function Header() {
         )}
       </div>
 
+      {!isHomePage && (
+        <div
+          className={cn(
+            currentBgColor,
+            "w-full flex items-center justify-center md:hidden relative  ",
+          )}
+        >
+          <motion.button
+            onClick={() => setOpen((prev) => !prev)}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-1 p-2  rounded-md text-black"
+          >
+            <ChevronDown
+              className={cn(
+                "w-4 h-4 transition-transform",
+                open && "rotate-180",
+              )}
+            />
+          </motion.button>
+        </div>
+      )}
       {/* Navigation dropdown */}
       <AnimatePresence>
         {open && (
           <motion.nav
-            initial={{ opacity: 0, y: -100 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -200 }}
-            transition={{ type: "spring", duration: 0.6 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ type: "spring", duration: 0.4 }}
             className={cn(
               currentBgColor,
               isProjectPath && "border-b-(--warm-stone)",
-              "absolute top-full left-0 w-full h-fit flex items-end border-b-black border-b-2 shadow-md py-8 z-10",
+              "absolute top-full left-0 w-full h-fit flex flex-col border-b-black border-b-2 shadow-md py-4 z-10",
             )}
           >
             <Navigation />

@@ -53,18 +53,18 @@ export const HomeCarousel = () => {
       </CarouselContent>
       <Button
         onClick={() => api?.scrollPrev()}
-        className="absolute left-24 top-1/2 -translate-y-1/2 bg-transparent p-0 shadow-none hover:bg-transparent"
+        className="absolute left-10 md:left-24 top-1/2 -translate-y-1/2 bg-transparent p-0 shadow-none hover:bg-transparent"
       >
         <span className="flex items-center gap-3 text-black">
-          <span className="text-7xl">⭠</span>
+          <span className="text-3xl md:text-7xl">⭠</span>
         </span>
       </Button>
       <Button
         onClick={() => api?.scrollNext()}
-        className="absolute right-24 top-1/2 -translate-y-1/2 bg-transparent p-0 shadow-none hover:bg-transparent "
+        className="absolute right-10 md:right-24 top-1/2 -translate-y-1/2 bg-transparent p-0 shadow-none hover:bg-transparent "
       >
         <span className="flex items-center gap-3 text-black">
-          <span className="text-7xl">⭢</span>
+          <span className="text-3xl md:text-7xl">⭢</span>
         </span>
       </Button>
     </Carousel>

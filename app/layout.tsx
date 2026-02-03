@@ -3,6 +3,7 @@ import "./globals.css";
 import { parnasoSmallRegular } from "@/lib/font";
 import HeaderContainer from "./_components/header-container";
 import FooterContainer from "./_components/footer-container";
+import ReactLenisContext from "@/components/react-lenis-provider";
 
 export const metadata: Metadata = {
   title: "Domopan",
@@ -20,10 +21,12 @@ export default function RootLayout({
       <body
         className={`${parnasoSmallRegular.className} bg-(--warm-stone) relative antialiased `}
       >
-        <HeaderContainer />
-        <main>{children}</main>
+        <ReactLenisContext>
+          <HeaderContainer />
+          <main>{children}</main>
 
-        <FooterContainer />
+          <FooterContainer />
+        </ReactLenisContext>
       </body>
     </html>
   );
