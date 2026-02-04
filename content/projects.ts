@@ -1,7 +1,7 @@
 import {
   AlthurayaTowerImage1,
+  AlthurayaTowerImage2,
   AlthurayaTowerMainImage,
-  AlthurayaTowerrImage2,
   AlwajbaImage1,
   AlwajbaImage10,
   AlwajbaImage2,
@@ -136,7 +136,7 @@ export const PROJECTS: Projects = [
     consultant: "Details unavailable.",
     builtUpArea: "Details unavailable.",
     description: "Details unavailable.",
-    gallery: [AlthurayaTowerImage1, AlthurayaTowerrImage2],
+    gallery: [AlthurayaTowerImage1, AlthurayaTowerImage2],
     tags: [
       { label: "Fabric Shade Engineering", className: "bg-(--desert-olive) text-white font-normal" },
       { label: "Commercial", className: "bg-transparent border-(--desert-olive)" },
