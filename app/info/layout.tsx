@@ -11,7 +11,7 @@ export default function InfoLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="bg-(--soft-pistachio) relative min-h-dvh flex flex-col justify-between pb-6">
+    <main className="bg-(--soft-pistachio) relative min-h-dvh flex flex-col justify-between pb-6 container mx-auto">
       {children}
     </main>
   );

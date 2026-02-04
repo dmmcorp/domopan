@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function Navigation() {
+function Navigation({ onOpen }: { onOpen: (value: boolean) => void }) {
   const pathname = usePathname();
 
   const ROUTES = [
@@ -34,6 +34,7 @@ function Navigation() {
           return (
             <span key={route.path} className="flex">
               <Link
+                onClick={() => onOpen(false)}
                 href={route.path}
                 className={cn(
                   "nav-links hover:text-[#4a4b47]",

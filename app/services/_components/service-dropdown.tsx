@@ -1,6 +1,6 @@
 "use client";
 import { parnasoSmallMedium, parnasoSmallRegular } from "@/lib/font";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Service } from "@/content/services";
@@ -21,7 +21,7 @@ export const ServiceDropdown = ({ service }: ServiceDropdownProps) => {
         className="flex flex-row items-center justify-between mb-2 w-full cursor-pointer"
       >
         <h1
-          className={`text-2xl md:text-3xl lg:text-5xl font-semibold ${parnasoSmallMedium.className}`}
+          className={`text-2xl lg:text-5xl font-semibold text-nowrap ${parnasoSmallMedium.className}`}
         >
           {title}
         </h1>
@@ -52,7 +52,7 @@ export const ServiceDropdown = ({ service }: ServiceDropdownProps) => {
               animate={{ y: 0 }}
               exit={{ y: 12 }}
               transition={{ duration: 0.3 }}
-              className={`space-y-5 text-sm mdLtext-lg lg:text-2xl leading-relaxed ${parnasoSmallRegular.className}`}
+              className={`space-y-5 text-xl md:text-lg lg:text-2xl leading-relaxed ${parnasoSmallRegular.className}`}
             >
               <p>{paragraph1}</p>
               <p>{paragraph2}</p>
