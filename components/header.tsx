@@ -15,7 +15,6 @@ import ENGLISHP from "@/public/assets/images/letter-p.svg";
 import ENGLISHA from "@/public/assets/images/letter-a.svg";
 import ENGLISHN from "@/public/assets/images/letter-n.svg";
 import MaskedLetter from "./masked-letter";
-import { ChevronDown } from "lucide-react";
 import NavigationDropdown from "./navigation-dropdown";
 
 const domopanLetters = [
@@ -29,8 +28,7 @@ const domopanLetters = [
 ];
 
 function Header() {
-  const [open, setOpen] = useState(false); // controls nav visibility
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const currentBgColor = useRouteBackground();
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
