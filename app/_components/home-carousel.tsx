@@ -1,9 +1,7 @@
 "use client";
 
 import {
-  AlthurayaTowerImage1,
   AlthurayaTowerMainImage,
-  AlthurayaTowerrImage2,
   AlwajbaMainImage,
   DohaMainImage,
   LakhwiyaStadiumMainImage,
@@ -17,6 +15,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -55,16 +54,22 @@ export const HomeCarousel = () => {
         onClick={() => api?.scrollPrev()}
         className="absolute left-10 md:left-24 top-1/2 -translate-y-1/2 bg-transparent p-0 shadow-none hover:bg-transparent"
       >
-        <span className="flex items-center gap-3 text-black">
-          <span className="text-3xl md:text-7xl">⭠</span>
+        <span className="hidden md:flex items-center gap-3 text-black ">
+          <span className="text-3xl md:text-7xl ">⭠</span>
+        </span>
+        <span className="md:hidden flex items-center gap-3 text-black ">
+          <ChevronLeft className="text-2xl size-6" />
         </span>
       </Button>
       <Button
         onClick={() => api?.scrollNext()}
         className="absolute right-10 md:right-24 top-1/2 -translate-y-1/2 bg-transparent p-0 shadow-none hover:bg-transparent "
       >
-        <span className="flex items-center gap-3 text-black">
+        <span className="hidden md:flex items-center gap-3 text-black ">
           <span className="text-3xl md:text-7xl">⭢</span>
+        </span>
+        <span className="md:hidden flex items-center gap-3 text-black ">
+          <ChevronRight className="text-2xl size-6" />
         </span>
       </Button>
     </Carousel>

@@ -22,13 +22,16 @@ export default function ProjectInfo({ project }: ProjectInfoProps) {
 
   return (
     <motion.div
-      className="px-10 mt-8 mb-16"
+      className="px-5 sm:px-10 mt-8 mb-16"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }} // animate when 30% in view
     >
       {/* Project Name */}
-      <motion.h1 className="text-4xl lg:text-5xl mb-2" variants={fadeUp}>
+      <motion.h1
+        className="text-3xl sm:text-4xl lg:text-5xl mb-2"
+        variants={fadeUp}
+      >
         {project.name}
       </motion.h1>
 

@@ -59,7 +59,7 @@ export default function Home() {
         >
           <Header />
           <div className={cn(!isOpen ? "hidden" : "block")}>
-            <Navigation />
+            <Navigation onOpen={setIsOpen} />
             <div className="container mx-auto">
               <HomeCarousel />
             </div>
@@ -97,6 +97,7 @@ export default function Home() {
           onPointerDown={(e) => controls.start(e)}
           className="absolute inset-0  cursor-grab active:cursor-grabbing h-screen flex items-center justify-center z-50 pt-64"
           drag="y"
+          dragConstraints={{ top: 0, bottom: 300 }}
           style={{ y: dragY }}
           dragControls={controls}
           dragMomentum={true}

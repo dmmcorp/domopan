@@ -3,7 +3,6 @@
 import { ServiceDropdown } from "./service-dropdown";
 import { servicesData } from "@/content/services";
 import { parnasoSmallMedium } from "@/lib/font";
-import { CompanyFooter } from "@/components/company-footer";
 import { motion } from "framer-motion";
 
 // Container variants for staggered animation

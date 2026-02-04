@@ -16,7 +16,7 @@ const ProjectSlugPage = async ({ params }: ProjectSlugPageProps) => {
   if (!project) notFound();
 
   return (
-    <div className="min-h-screen flex flex-col z-50 w-full text-[#c4c1b2] pb-64 mx-auto container">
+    <div className="min-h-screen flex flex-col z-50 w-full text-[#c4c1b2] pb-64 ">
       {/* Hero Image */}
       <ProjectHero image={project.image} name={project.name} />
 

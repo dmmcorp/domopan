@@ -16,6 +16,7 @@ import ENGLISHA from "@/public/assets/images/letter-a.svg";
 import ENGLISHN from "@/public/assets/images/letter-n.svg";
 import MaskedLetter from "./masked-letter";
 import { ChevronDown } from "lucide-react";
+import NavigationDropdown from "./navigation-dropdown";
 
 const domopanLetters = [
   { label: "D", image: ENGLISHD },
@@ -29,6 +30,7 @@ const domopanLetters = [
 
 function Header() {
   const [open, setOpen] = useState(false); // controls nav visibility
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const currentBgColor = useRouteBackground();
   const hoverTimeout = useRef<NodeJS.Timeout | null>(null);
@@ -92,27 +94,7 @@ function Header() {
       </div>
 
       {/* Mobile Menu Button */}
-      {!isHomePage && (
-        <div
-          className={cn(
-            currentBgColor,
-            "w-full flex items-center justify-center lg:hidden relative z-50",
-          )}
-        >
-          <motion.button
-            onClick={() => setOpen((prev) => !prev)}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-1 p-2 rounded-md text-black"
-          >
-            <ChevronDown
-              className={cn(
-                "w-4 h-4 transition-transform",
-                open && "rotate-180",
-              )}
-            />
-          </motion.button>
-        </div>
-      )}
+      {!isHomePage && <NavigationDropdown open={open} onOpen={setOpen} />}
 
       {/* Navigation dropdown */}
       <AnimatePresence>
@@ -128,7 +110,7 @@ function Header() {
               "absolute top-full left-0 w-full h-fit flex flex-col border-b-black border-b-2 shadow-md py-4 z-10",
             )}
           >
-            <Navigation />
+            <Navigation onOpen={setOpen} />
           </motion.nav>
         )}
       </AnimatePresence>
