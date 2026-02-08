@@ -132,9 +132,9 @@ export const PROJECTS: Projects = [
     slug: "al-thuraya-tower",
     image: AlthurayaTowerMainImage,
     name: "Al Thuraya Tower",
-    client: "Details unavailable.",
-    consultant: "Details unavailable.",
-    builtUpArea: "Details unavailable.",
+    client: "Centara (Al Thuraya - P119)",
+    consultant: "Dewan Architects / Al Bandary Engineering",
+    builtUpArea: "73,000 M²",
     description: "Details unavailable.",
     gallery: [AlthurayaTowerImage1, AlthurayaTowerImage2],
     tags: [
