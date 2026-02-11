@@ -46,7 +46,6 @@ import {
 } from "@/components/constants/projects-image";
 import type { StaticImageData } from "next/image";
 
-// TODO: add a type for PROJECTS
 const TAGS = [
   "Contracting",
   "Hospitality",
@@ -67,6 +66,7 @@ type ProjectTagItem = {
   label: ProjectTag;
   className: string;
 };
+
 export type Project = {
   slug: string;
   image: StaticImageData | string;
