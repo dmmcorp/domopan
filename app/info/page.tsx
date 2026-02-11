@@ -4,6 +4,8 @@ import { companyMission, companyVision } from "@/content/company";
 import Contact from "./_components/contact";
 import InfoImage from "@/public/assets/images/info-image.png";
 import Image from "next/image";
+import LegalCompliance from "./_components/legal-compliance";
+import { Separator } from "@/components/ui/separator";
 
 const InfoPage = () => {
   return (
@@ -12,8 +14,15 @@ const InfoPage = () => {
 
       <InfoContent title="Vision" content={companyVision} />
       <InfoContent title="Mission" content={companyMission} />
+      <div className="">
+        <Contact />
+      </div>
+      <Separator className="mb-20 border-black border-2" />
+      <div className="">
+        <LegalCompliance />
+      </div>
+      <Separator className="my-20 border-black border-2" />
 
-      <Contact />
       <div className="h-[30vh] lg:h-[80vh] w-full pointer-events-none">
         <Image src={InfoImage} alt="info-image" className="size-full" />
       </div>
